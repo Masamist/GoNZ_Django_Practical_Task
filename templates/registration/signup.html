@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} Sign Up {% endblock title%}
+
+{% block content %}
+<div class="container py-5">
+    <div class="card" style="width: 45rem p-5">
+        <div class="card-body">
+            <h5 class="card-title py-3">Sign Up</h5>
+            <form action="" method="post">
+                {% csrf_token %} {{ form.as_p }}
+                <button type="submit" class="btn btn-dark">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

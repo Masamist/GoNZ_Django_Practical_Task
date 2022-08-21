@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container p-5">
+    <h1 class="display-4 py-3">Delete New Tour</h1>
+    <form action="" method="post">
+        <div class="form-group">
+        {% csrf_token %}
+        <p>Are you sure you want to delete "{{ tour.tour_name }}" ? </p>
+        <button type="submit" class="btn btn-outline-info my-3">Confirm</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

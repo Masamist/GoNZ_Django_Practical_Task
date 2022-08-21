@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container-fluid pt-5 pb-5">
+        <h1 class="display-4 py-2">Agent List</h1>
+        <table class="table">
+            <thead class="thead-light">
+            <tr>
+                <th>Agent Name</th>
+                <th>Email</th> 
+                <th>Position</th>        
+            </tr>
+            </thead>
+            <tbody>    
+            {% for user in object_list%}
+            <tr>
+                <td><a class="text-info text-decoration-none" href="{% url 'agent_detail' user.pk %}"> {{ user.username }}</a></td>                           
+                <td> {{ user.email }} </td>
+                <td> {{ user.roles }} </td>  
+            </tr>
+            {% empty %}
+                <td>No Agent yet. </td>
+            {% endfor %}
+    
+            </tbody>
+        </table>
+        {% if user.is_authentificated %}
+            <a href="{% url 'tour_create' %}"> Create a new tour </a>
+        {% endif %}
+    </div>
+{% endblock content %}

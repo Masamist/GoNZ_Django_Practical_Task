@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container p-5">
+    <h1 class="display-4 py-2">GoNZ Agent</h1>
+    
+    <table class="table .table-striped">
+        <tr>
+            <th>User Name: </th>
+            <td>{{ customuser.username }}</td>
+        </tr>
+        <tr>
+            <th>Agent Name: </th>
+            <td>{{ customuser.first_name }} {{ customuser.last_name }}</td>
+        </tr>
+        <tr>
+            <th>Email: </th>
+            <td>{{ customuser.email }}</td>
+        </tr>
+        <tr>
+            <th>Position: </th>
+            <td>{{ customuser.roles }}</td>
+        </tr>
+    </table>
+    <a class="btn btn-info mt-3" href="{% url 'agent' %}" role="button">Back to Agent List</a>
+</div>
+{% endblock content %}

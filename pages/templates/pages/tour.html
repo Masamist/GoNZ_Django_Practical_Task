@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %} Tour List {% endblock title%}
+
+{% block content %}
+<div class="container-fluid pt-5 pb-5">
+    <h1 class="display-4 py-2">Tours List</h1>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Tour Name</th>
+                <th>City</th>
+                <th>Duration</th>
+                <th>Agent</th>
+            </tr>
+        </thead>
+        <tbody>    
+            {% for tour in tour_list %}
+            <tr>
+                <td><a class="text-info text-decoration-none" href="{% url 'tour_detail' tour.pk %}"> {{ tour.tour_name }} </a></td>
+                <td>{{ tour.city_name }}</td>
+                <td>{{ tour.duration }} Days</td>
+                <td>{{ tour.agent }}</td>
+            </tr>
+            {% empty %}
+                <td>No Tour yet.</td>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if user.is_authenticated %}
+    <a class="btn btn-outline-info mt-3" href="{% url 'tour_create' %}" role="button">Create a new tour</a>
+    {% endif %}
+</div>
+
+{% endblock content %}

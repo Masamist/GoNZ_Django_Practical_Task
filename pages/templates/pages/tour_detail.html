@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %} Tour Detail {% endblock title%}
+
+{% block content %}
+<div class="container py-5">
+    <h3 class="py-3">{{ tour.tour_name }}</h3>
+    <table class="table pt-5">
+        <tbody>
+          <tr>
+            <th scope="row">Agent:</th>
+            <td>{{ tour.agent }}</td>
+          </tr>
+          <tr>
+            <th scope="row">City:</th>
+            <td>{{ tour.city_name }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Date:</th>
+            <td>{{ tour.date }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Duration:</th>
+            <td>{{ tour.duration }} Days</td>
+          </tr>
+          <tr>
+            <th scope="row">Price:</th>
+            <td>${{ tour.price }} NZD</td>
+          </tr>
+          <tr>
+            <th scope="row">Description:</th>
+            <td>{{ tour.body }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <span>
+        <a class="btn btn-info mt-3 mr-2" href="{% url 'tour' %}" role="button">Back to Tour List</a>
+        {% if user.is_authenticated %}
+        
+            <a class="btn btn-outline-info mt-3 mr-2" href="{% url 'tour_update' tour.pk %}" role="button">Update</a>
+            <a class="btn btn-outline-info mt-3" href="{% url 'tour_delete' tour.pk %}" role="button">Delete</a> 
+        {% endif %}
+      </span>
+    
+</div>
+{% endblock content %}

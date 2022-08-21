@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Home {% endblock title%}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <h1 class="display-4 py-2">Travel around New Zealand with GoNZ</h1>
+    <img src="{% static 'images/gonz_image.png' %}" class="img-fluid" alt="GoNZ nature images"/>
+</div>
+    
+{% endblock content %}
